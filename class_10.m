@@ -5,9 +5,18 @@ g = 9.81; % gravity
 w = (2*pi)/T; %frequency
 A = 0.1; %amplitude
 
-disp(w);
+% Define the function to solve for k
+dispersion_relation = @(k) w^2 - g * k * tanh(k * d);
 
-k = 0.4473;
+% Initial guess for k (e.g., shallow water approximation)
+k_initial_guess = w^2 / g;
+
+% Solve for k using fzero
+k = fzero(dispersion_relation, k_initial_guess);
+
+% Display the result
+fprintf('The wave number k is %.4f m^-1\n', k);
+
 x = linspace(0, 20, 500); % x-axis range
 t_interval = 0:0.1:10;     % Time interval (0 to 5 seconds, step 0.1)
 
