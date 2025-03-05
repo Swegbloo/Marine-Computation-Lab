@@ -11,7 +11,7 @@ Tc = ones(size(alpha));Tp=Tc;Th=Tc;
 
 L=1;%radius of the circle or half the width
 left_length = -5*L;right_length = 5*L;
-h=2;Delta = 0.04; 
+h=1;Delta = 0.04; 
 k_number = 100;k_max = 10*pi;x_number =400;%k_number = 1000;
 number_modes=10;dof='one';mode='pitch';
 density=0.5; % density of the body relative to water
